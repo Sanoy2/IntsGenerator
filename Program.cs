@@ -8,7 +8,7 @@ namespace IntsGenerator
     {
         static void Main(string[] args)
         {
-            string path = "~/Thesis/Ints/";
+            string path = Environment.GetEnvironmentVariable("HOME") + "/Thesis/Ints/";
             int numberOfFiles = 100;
         
             var numberOfInts = new int[]
@@ -18,6 +18,7 @@ namespace IntsGenerator
             };
 
             Cleaner.CleanEverythingUnderDirectory(path);
+
             var requests = SetGenerationRequest.GetCreationRequests(path, numberOfFiles, numberOfInts);
 
             var generator = new SetGenerator();
